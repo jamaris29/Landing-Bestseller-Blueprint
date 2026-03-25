@@ -14,7 +14,7 @@ export const useLanguage = () => useContext(LanguageContext);
 const AnimatedNumber = ({ value, prefix = "", suffix = "", duration = 2000 }: { value: number, prefix?: string, suffix?: string, duration?: number }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "50px" });
 
   useEffect(() => {
     if (!isInView) return;
@@ -375,7 +375,7 @@ function MainContent() {
               <span className="relative">{t.btnAccess}</span>
               <ChevronRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-slate-400">
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-sm text-slate-400">
               <Lock className="w-4 h-4" />
               <span>{t.trustBadge} <AnimatedNumber value={2851} /> {t.trustBadge2}</span>
             </div>
@@ -391,7 +391,7 @@ function MainContent() {
                   {t.problemTitle1} <br />
                   <span className="text-yellow-400">{t.problemTitle2}</span>
                 </h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">
+                <p className="text-[17px] text-slate-400 max-w-2xl mx-auto whitespace-pre-line">
                   {t.problemSubtitle}
                 </p>
               </FadeIn>
@@ -422,7 +422,9 @@ function MainContent() {
                 <p className="text-xl md:text-2xl font-medium italic text-slate-300">
                   {t.quote}
                 </p>
-                <p className="mt-4 text-emerald-400 font-medium">{t.quoteAuthor}</p>
+                {t.quoteAuthor && (
+                  <p className="mt-4 text-emerald-400 font-medium">{t.quoteAuthor}</p>
+                )}
               </div>
             </FadeIn>
           </div>
@@ -450,9 +452,9 @@ function MainContent() {
                 { step: "03", title: t.step3Title, desc: t.step3Desc }
               ].map((item, i) => (
                 <FadeIn key={i} delay={i * 0.2}>
-                  <div className="group relative p-8 rounded-3xl bg-slate-900/40 border border-slate-800 hover:border-yellow-400/50 transition-all duration-500 h-full overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-yellow-400/0 group-hover:from-yellow-400/5 group-hover:to-transparent transition-colors duration-500" />
-                    <div className="text-6xl font-black text-slate-800/50 mb-6 group-hover:text-yellow-400/20 transition-colors">{item.step}</div>
+                  <div className="group relative p-8 rounded-3xl bg-slate-900/40 border border-yellow-400/50 md:border-slate-800 md:hover:border-yellow-400/50 transition-all duration-500 h-full overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent md:from-yellow-400/0 md:to-yellow-400/0 md:group-hover:from-yellow-400/5 md:group-hover:to-transparent transition-colors duration-500" />
+                    <div className="text-6xl font-black text-yellow-400/20 md:text-slate-800/50 mb-6 md:group-hover:text-yellow-400/20 transition-colors">{item.step}</div>
                     <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{item.title}</h3>
                     <p className="text-slate-400 leading-relaxed relative z-10">{item.desc}</p>
                   </div>
@@ -482,8 +484,11 @@ function MainContent() {
                 <p className="mb-6">
                   {t.storyP2}
                 </p>
-                <p>
-                  {t.storyP3Start}<strong className="text-emerald-400 font-semibold">{t.storyTeam}</strong>{t.storyP3End}
+                <p className="mb-6 whitespace-pre-line">
+                  {t.storyP3}
+                </p>
+                <p className="whitespace-pre-line">
+                  {t.storyP4}
                 </p>
               </div>
 
@@ -551,8 +556,7 @@ function MainContent() {
             <FadeIn>
               <div className="text-center mb-10">
                 <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                  {t.ctaTitle1} <br />
-                  <span className="text-yellow-400 text-2xl md:text-3xl">{t.ctaTitle2}</span>
+                  {t.ctaTitle1}
                 </h2>
               </div>
               
