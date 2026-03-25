@@ -491,53 +491,46 @@ function MainContent() {
                 </h2>
               </div>
               
-              {/* MailerLite Embed Container */}
-              <div className="w-full max-w-md mx-auto">
-                <div id="mlb2-38730039" className="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38730039">
-                  <div className="ml-form-align-center">
-                    <div className="ml-form-embedWrapper embedForm">
-                      <div className="ml-form-embedContent">
-                        <h4 className="text-xl font-bold mb-2 text-center">{t.formTitle}</h4>
-                        <p className="text-sm text-center mb-6 text-slate-300">{t.formDesc}</p>
-                      </div>
-                      <form className="ml-block-form" action="https://assets.mailerlite.com/jsonp/797087/forms/114949175440639913/subscribe" data-code="38730039" method="post" target="_blank">
-                        <div className="ml-form-formContent">
-                          <div className="ml-form-fieldRow mb-4">
-                            <div className="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                              <input 
-                                type="email" 
-                                className="form-control" 
-                                data-inputmask="" 
-                                name="fields[email]" 
-                                placeholder={t.formPlaceholder} 
-                                autoComplete="email"
-                                required
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        <input type="hidden" name="ml-submit" value="1" />
-                        <div className="ml-form-embedSubmit">
-                          <button type="submit" className="primary">
-                            {t.btnAccess}
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+              {/* MailerLite Native Form */}
+              <div className="w-full max-w-md mx-auto bg-slate-900/50 p-8 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-sm">
+                <div className="text-center mb-8">
+                  <h4 className="text-2xl font-bold mb-3 text-white">{t.formTitle}</h4>
+                  <p className="text-slate-300">{t.formDesc}</p>
                 </div>
                 
-                {/* MailerLite Script */}
-                <script dangerouslySetInnerHTML={{
-                  __html: `
-                    function ml_webform_success_38730039() {
-                      var $ = ml_jQuery || jQuery;
-                      $('.ml-subscribe-form-38730039 .row-success').show();
-                      $('.ml-subscribe-form-38730039 .row-form').hide();
-                    }
-                  `
-                }} />
-                <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v2d8fb22bb5b3677f161552cd9e774127" type="text/javascript" async></script>
+                <form 
+                  action="https://assets.mailerlite.com/jsonp/2207106/forms/182416487836812530/subscribe" 
+                  method="post" 
+                  target="_blank"
+                  className="flex flex-col gap-4"
+                >
+                  <div className="relative">
+                    <input 
+                      type="email" 
+                      name="fields[email]" 
+                      placeholder={t.formPlaceholder} 
+                      autoComplete="email"
+                      required
+                      className="w-full px-6 py-4 bg-slate-950/80 border border-yellow-400/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all shadow-inner"
+                    />
+                  </div>
+                  
+                  <input type="hidden" name="ml-submit" value="1" />
+                  
+                  <button 
+                    type="submit" 
+                    className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-slate-950 bg-emerald-400 rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(80,200,120,0.4)] w-full"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative">{t.btnAccess}</span>
+                    <ChevronRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  
+                  <p className="text-xs text-center text-slate-500 mt-4 flex items-center justify-center gap-1">
+                    <Lock className="w-3 h-3" />
+                    {lang === 'es' ? 'Tus datos están 100% seguros' : 'Your data is 100% secure'}
+                  </p>
+                </form>
               </div>
             </FadeIn>
           </div>
