@@ -282,7 +282,12 @@ function MainContent() {
       });
       // Con no-cors no podemos leer la respuesta, pero si no hay error de red, asumimos éxito.
       setIsSubscribed(true);
-      window.location.href = 'https://lanzamiento-editorial.vercel.app/';
+      
+      // Retrasamos la redirección 1.5 segundos para asegurar que la petición se completó
+      // y para que el usuario pueda ver el mensaje de éxito.
+      setTimeout(() => {
+        window.location.href = 'https://lanzamiento-editorial.vercel.app/';
+      }, 1500);
     } catch (error) {
       console.error('Error al suscribirse:', error);
     } finally {
