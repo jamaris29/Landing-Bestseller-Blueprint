@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #020617;
+  --color-emerald-glow: #50C878;
+  --color-gold-glow: #FFD700;
+  --color-violet-accent: #2e1065;
+}
+
+body {
+  background-color: var(--color-midnight);
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* MailerLite Form Overrides */
+.ml-form-embedWrapper {
+  background-color: rgba(2, 6, 23, 0.8) !important;
+  border: 1px solid #FFD700 !important;
+  border-radius: 1rem !important;
+  padding: 2rem !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 10px 30px -10px rgba(255, 215, 0, 0.2) !important;
+}
+
+.ml-form-embedContent h4,
+.ml-form-embedContent p {
+  color: #ffffff !important;
+}
+
+.ml-form-embedWrapper input[type="email"],
+.ml-form-embedWrapper input[type="text"] {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  color: #ffffff !important;
+  border: 1px solid #50C878 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  outline: none !important;
+  width: 100% !important;
+}
+
+.ml-form-embedWrapper input[type="email"]:focus,
+.ml-form-embedWrapper input[type="text"]:focus {
+  box-shadow: 0 0 10px rgba(80, 200, 120, 0.5) !important;
+}
+
+.ml-form-embedSubmit button {
+  background-color: #50C878 !important;
+  color: #020617 !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1.5rem !important;
+  box-shadow: 0 0 15px rgba(80, 200, 120, 0.5) !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  margin-top: 1rem !important;
+}
+
+.ml-form-embedSubmit button:hover {
+  box-shadow: 0 0 25px rgba(80, 200, 120, 0.8) !important;
+  transform: translateY(-2px) !important;
+}
