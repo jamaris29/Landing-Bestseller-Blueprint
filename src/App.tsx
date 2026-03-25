@@ -282,6 +282,7 @@ function MainContent() {
       });
       // Con no-cors no podemos leer la respuesta, pero si no hay error de red, asumimos éxito.
       setIsSubscribed(true);
+      window.location.href = 'https://lanzamiento-editorial.vercel.app/';
     } catch (error) {
       console.error('Error al suscribirse:', error);
     } finally {
