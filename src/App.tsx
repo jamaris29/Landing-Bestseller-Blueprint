@@ -223,6 +223,34 @@ function MainContent() {
     damping: 30,
     restDelta: 0.001
   });
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData as any);
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }
+      });
+      // Con no-cors no podemos leer la respuesta, pero si no hay error de red, asumimos éxito.
+      setIsSubscribed(true);
+    } catch (error) {
+      console.error('Error al suscribirse:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const scrollToForm = () => {
     document.getElementById('cta-form')?.scrollIntoView({ behavior: 'smooth' });
@@ -492,45 +520,82 @@ function MainContent() {
               </div>
               
               {/* MailerLite Native Form */}
-              <div className="w-full max-w-md mx-auto bg-slate-900/50 p-8 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-sm">
-                <div className="text-center mb-8">
-                  <h4 className="text-2xl font-bold mb-3 text-white">{t.formTitle}</h4>
-                  <p className="text-slate-300">{t.formDesc}</p>
-                </div>
-                
-                <form 
-                  action="https://assets.mailerlite.com/jsonp/2207106/forms/182416487836812530/subscribe" 
-                  method="post" 
-                  target="_blank"
-                  className="flex flex-col gap-4"
-                >
-                  <div className="relative">
-                    <input 
-                      type="email" 
-                      name="fields[email]" 
-                      placeholder={t.formPlaceholder} 
-                      autoComplete="email"
-                      required
-                      className="w-full px-6 py-4 bg-slate-950/80 border border-yellow-400/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all shadow-inner"
-                    />
-                  </div>
-                  
-                  <input type="hidden" name="ml-submit" value="1" />
-                  
-                  <button 
-                    type="submit" 
-                    className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-slate-950 bg-emerald-400 rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(80,200,120,0.4)] w-full"
+              <div id="mlb2-38730039" className="ml-subscribe-form ml-subscribe-form-38730039 w-full max-w-md mx-auto bg-slate-900/50 p-8 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-sm">
+                {!isSubscribed ? (
+                  <>
+                    <div className="text-center mb-8">
+                      <h4 className="text-2xl font-bold mb-3 text-white">{t.formTitle}</h4>
+                      <p className="text-slate-300">{t.formDesc}</p>
+                    </div>
+                    
+                    <form 
+                      className="ml-block-form flex flex-col gap-4"
+                      action="https://assets.mailerlite.com/jsonp/2207106/forms/182416487836812530/subscribe" 
+                      method="post" 
+                      onSubmit={handleSubscribe}
+                    >
+                      <div className="ml-form-fieldRow ml-last-item">
+                        <div className="ml-field-group ml-field-email ml-validate-email ml-validate-required relative">
+                          <input 
+                            type="email" 
+                            name="fields[email]" 
+                            className="form-control w-full px-6 py-4 bg-slate-950/80 border border-yellow-400/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all shadow-inner"
+                            placeholder={t.formPlaceholder} 
+                            autoComplete="email"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <input type="hidden" name="ml-submit" value="1" />
+                      <input type="hidden" name="anticsrf" value="true" />
+                      
+                      <div className="ml-form-embedSubmit">
+                        <button 
+                          type="submit" 
+                          disabled={isLoading}
+                          className="primary group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-slate-950 bg-emerald-400 rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(80,200,120,0.4)] w-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          {isLoading ? (
+                            <>
+                              <div className="w-5 h-5 border-2 border-slate-950/30 border-t-slate-950 rounded-full animate-spin" />
+                              <span className="relative ml-2">{lang === 'es' ? 'Enviando...' : 'Sending...'}</span>
+                            </>
+                          ) : (
+                            <>
+                              <span className="relative">{t.btnAccess}</span>
+                              <ChevronRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </>
+                          )}
+                        </button>
+                      </div>
+                      
+                      <p className="text-xs text-center text-slate-500 mt-4 flex items-center justify-center gap-1">
+                        <Lock className="w-3 h-3" />
+                        {lang === 'es' ? 'Tus datos están 100% seguros' : 'Your data is 100% secure'}
+                      </p>
+                    </form>
+                  </>
+                ) : (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-8"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="relative">{t.btnAccess}</span>
-                    <ChevronRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  
-                  <p className="text-xs text-center text-slate-500 mt-4 flex items-center justify-center gap-1">
-                    <Lock className="w-3 h-3" />
-                    {lang === 'es' ? 'Tus datos están 100% seguros' : 'Your data is 100% secure'}
-                  </p>
-                </form>
+                    <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(80,200,120,0.3)]">
+                      <CheckCircle className="w-10 h-10 text-emerald-400" />
+                    </div>
+                    <h4 className="text-3xl font-bold mb-4 text-white">
+                      {lang === 'es' ? '¡Suscripción Exitosa!' : 'Successfully Subscribed!'}
+                    </h4>
+                    <p className="text-slate-300 text-lg">
+                      {lang === 'es' 
+                        ? 'Revisa tu bandeja de entrada (o carpeta de spam) para confirmar tu correo y acceder al contenido.' 
+                        : 'Check your inbox (or spam folder) to confirm your email and access the content.'}
+                    </p>
+                  </motion.div>
+                )}
               </div>
             </FadeIn>
           </div>
