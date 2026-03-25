@@ -244,7 +244,7 @@ function MainContent() {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-violet-500/20 border border-emerald-500/30 overflow-hidden">
-              <img src="/logo.png" alt="Logo" className="absolute inset-0 w-full h-full object-contain p-1 z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+              <img src="./logo.png" alt="Logo" className="absolute inset-0 w-full h-full object-contain p-1 z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               <BookOpen className="w-5 h-5 text-emerald-400 absolute" />
             </div>
             <span className="text-xl font-bold text-slate-100 tracking-tight hidden sm:block">The Bestseller Blueprint</span>
