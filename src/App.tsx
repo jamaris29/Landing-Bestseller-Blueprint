@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState, createContext, useContext } from 'react';
 import { motion, useInView, AnimatePresence, useScroll, useSpring } from 'motion/react';
 import { Sparkles, BookOpen, DollarSign, Clock, Map, CheckCircle, BookText, Moon, Globe, FileDown, ChevronRight, Lock, BookMarked, Users, Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
+import { Routes, Route, Link } from 'react-router-dom';
 import { translations, Language } from './translations';
+import { Testimonials } from './components/Testimonials';
+import { TestimonialsPage } from './pages/TestimonialsPage';
 
 const LanguageContext = createContext<{ lang: Language; setLang: (l: Language) => void; t: typeof translations.es }>({
   lang: 'es',
@@ -320,7 +323,13 @@ function MainContent() {
             </div>
             <span className="text-xl font-bold text-slate-100 tracking-tight hidden sm:block">The Bestseller Blueprint</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Link 
+              to="/historias" 
+              className="text-sm font-medium text-slate-200 hover:text-emerald-400 transition-colors duration-300"
+            >
+              {t.navTestimonials}
+            </Link>
             <button
               onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
               className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-800/50 transition-colors text-slate-300 hover:text-emerald-400"
@@ -331,7 +340,7 @@ function MainContent() {
             </button>
             <button
               onClick={scrollToForm}
-              className="px-5 py-2 text-sm font-bold text-slate-950 bg-emerald-400 rounded-lg hover:shadow-[0_0_15px_rgba(80,200,120,0.5)] transition-all hover:scale-105"
+              className="px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold text-slate-950 bg-emerald-400 rounded-lg hover:shadow-[0_0_15px_rgba(80,200,120,0.5)] transition-all hover:scale-105"
             >
               {t.btnAccess}
             </button>
@@ -555,6 +564,9 @@ function MainContent() {
           </div>
         </section>
 
+        {/* Testimonials Section */}
+        <Testimonials />
+
         {/* 6. CTA Final (MailerLite) */}
         <section id="cta-form" className="py-24 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-emerald-900/10 blur-[100px] pointer-events-none" />
@@ -684,7 +696,10 @@ export default function App() {
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
-      <MainContent />
+      <Routes>
+        <Route path="/" element={<MainContent />} />
+        <Route path="/historias" element={<TestimonialsPage />} />
+      </Routes>
     </LanguageContext.Provider>
   );
 }
