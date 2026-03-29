@@ -19,21 +19,21 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 
 const testimonials = [
   {
-    name: "Gaby Bonalde",
+    name: "Autora Gaby Bonalde",
     handle: "@gabybonaldescritora",
     link: "https://www.instagram.com/gabybonaldescritora/",
     text: "Antes de usar la app, me agobiaba no tener un orden, no saber qué pasos dar para llegar a los lectores, ni cómo crear un equipo ARC. Esta herramienta me dejó muchas cosas en perspectiva que ni siquiera había tomado en cuenta a la hora de publicar; por ejemplo, el consejo de pedir las copias de autor con antelación me cayó como anillo al dedo. Me sorprendió lo intuitiva y organizada que está, te da una estructura que no habías pensado y hace ver el lanzamiento como algo ‘posible’ en poco tiempo. Además, como la web es interactiva, te hace sentir que te está celebrando el logro de cada semana. Totalmente la recomendaría, es una base increíble y yo sin duda la compraría.",
     image: "https://via.placeholder.com/150"
   },
   {
-    name: "Paula Valenzuela",
+    name: "Autora Paula Valenzuela",
     handle: "@paula.valenzuela.d",
     link: "https://www.instagram.com/paula.valenzuela.d/",
     text: "Es un esquema muy ordenado y evita que te olvides de cosas realmente importantes. Por ejemplo, a mi editorial se le olvidó imprimir los marcapáginas, tuve que hacer unos yo a la rápida y mandar a imprimirlos a un costo mayor del que debía por la urgencia. Definitivamente lo recomiendo, sobre todo si es para lanzar el primer libro, porque uno no se imagina todo el trabajo que conlleva y es bueno que alguien te lo explique claramente y en orden. Incluso en el formato de coedición, si bien hay editoriales que ayudan mucho con la publicidad, eso suele no ser suficiente, por lo que es súper importante saber qué cosas son exigibles sobre la marcha.",
     image: "https://via.placeholder.com/150"
   },
   {
-    name: "A. Entre Letras",
+    name: "Autora A. Entre Letras",
     handle: "@a_entre_letras",
     link: "https://www.instagram.com/a_entre_letras/",
     text: "En mi caso, lo que más me agobió fue el manejo de las redes; no tener un plan de cuándo revelar la portada o la sinopsis limitó el alcance de mis publicaciones y afectó a mi libro. Todos en este oficio sabemos que la autopublicación suele ser un proceso complejo en el que perdemos oportunidades por no tener claros los pasos, pero tener una estrategia que te oriente desde el minuto cero es un apoyo invaluable. The Bestseller Blueprint es una herramienta que te ayuda a ir de la mano del proceso y no luchando contra él. Me encanta que es sencilla de usar, los pasos están bien diseñados y puedes ir marcándolos a medida que avanzas. Se nota el amor que le ha puesto y que no lo hace una simple aficionada. Además, el precio está muy bien porque te da la garantía de usar la herramienta de por vida. Sí la recomendaría a ojos cerrados; con esta guía, muchos escritores se verán beneficiados y evitarán que su lanzamiento se convierta en un agobio.",
