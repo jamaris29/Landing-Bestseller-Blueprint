@@ -332,7 +332,7 @@ function MainContent() {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-violet-500/20 border border-emerald-500/30 overflow-hidden">
-              <span className="font-serif font-bold text-emerald-400 text-lg italic">BA</span>
+              <BookOpen className="w-6 h-6 text-yellow-400 drop-shadow-md" />
             </div>
             <span className="text-xl font-bold text-slate-100 tracking-tight hidden sm:block">The Bestseller Blueprint</span>
           </div>
