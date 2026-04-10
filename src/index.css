@@ -4,38 +4,39 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Newsreader", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --color-midnight: #020617;
-  --color-emerald-glow: #50C878;
-  --color-gold-glow: #FFD700;
-  --color-violet-accent: #2e1065;
+  --color-cream: #FDFCF0;
+  --color-charcoal: #2D2D2D;
+  --color-emerald-cta: #006a61;
+  --color-gold-star: #D4AF37;
+  --color-violet-link: #4B0082;
 }
 
 body {
-  background-color: var(--color-midnight);
-  color: #f8fafc;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
   overflow-x: hidden;
 }
 
 /* MailerLite Form Overrides */
 .ml-form-embedWrapper {
-  background-color: rgba(2, 6, 23, 0.8) !important;
-  border: 1px solid #FFD700 !important;
+  background-color: rgba(253, 252, 240, 0.8) !important;
+  border: 1px solid #D4AF37 !important;
   border-radius: 1rem !important;
   padding: 2rem !important;
   backdrop-filter: blur(10px) !important;
-  box-shadow: 0 10px 30px -10px rgba(255, 215, 0, 0.2) !important;
+  box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2) !important;
 }
 
 .ml-form-embedContent h4,
 .ml-form-embedContent p {
-  color: #ffffff !important;
+  color: #2D2D2D !important;
 }
 
 .ml-form-embedWrapper input[type="email"],
 .ml-form-embedWrapper input[type="text"] {
-  background-color: rgba(15, 23, 42, 0.8) !important;
-  color: #ffffff !important;
-  border: 1px solid #50C878 !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: #2D2D2D !important;
+  border: 1px solid #006a61 !important;
   border-radius: 0.5rem !important;
   padding: 0.75rem 1rem !important;
   outline: none !important;
@@ -44,17 +45,17 @@ body {
 
 .ml-form-embedWrapper input[type="email"]:focus,
 .ml-form-embedWrapper input[type="text"]:focus {
-  box-shadow: 0 0 10px rgba(80, 200, 120, 0.5) !important;
+  box-shadow: 0 0 10px rgba(0, 106, 97, 0.2) !important;
 }
 
 .ml-form-embedSubmit button {
-  background-color: #50C878 !important;
-  color: #020617 !important;
+  background-color: #006a61 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   border: none !important;
   border-radius: 0.5rem !important;
   padding: 0.75rem 1.5rem !important;
-  box-shadow: 0 0 15px rgba(80, 200, 120, 0.5) !important;
+  box-shadow: 0 4px 15px rgba(0, 106, 97, 0.3) !important;
   transition: all 0.3s ease !important;
   width: 100% !important;
   cursor: pointer !important;
@@ -62,6 +63,6 @@ body {
 }
 
 .ml-form-embedSubmit button:hover {
-  box-shadow: 0 0 25px rgba(80, 200, 120, 0.8) !important;
+  box-shadow: 0 6px 20px rgba(0, 106, 97, 0.4) !important;
   transform: translateY(-2px) !important;
 }

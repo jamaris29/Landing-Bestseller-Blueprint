@@ -58,20 +58,20 @@ export const TestimonialsPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-[#FDFCF0] text-[#2D2D2D] font-sans selection:bg-[#006a61]/20">
       {/* Floating Navbar with Glassmorphism */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-md border-b border-emerald-500/20 px-6 py-4">
+      <nav className="fixed top-0 w-full z-50 bg-[#FDFCF0]/80 backdrop-blur-md border-b border-[#006a61]/10 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <Link to="/" className="flex items-center gap-3">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-violet-500/20 border border-emerald-500/30 overflow-hidden">
-              <BookOpen className="w-6 h-6 text-yellow-400 drop-shadow-md" />
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#006a61]/10 to-[#4B0082]/10 border border-[#006a61]/20 overflow-hidden">
+              <BookOpen className="w-6 h-6 text-[#D4AF37] drop-shadow-sm" />
             </div>
-            <span className="text-xl font-bold text-slate-100 tracking-tight hidden sm:block">The Bestseller Blueprint</span>
+            <span className="text-xl font-bold text-[#2D2D2D] tracking-tight hidden sm:block font-serif">The Bestseller Blueprint</span>
           </Link>
           <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-800/50 transition-colors text-slate-300 hover:text-emerald-400"
+              className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors text-slate-500 hover:text-[#006a61]"
               title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
             >
               <Globe className="w-5 h-5" />
@@ -79,7 +79,7 @@ export const TestimonialsPage = () => {
             </button>
             <Link
               to="/"
-              className="px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold text-slate-950 bg-emerald-400 rounded-lg hover:shadow-[0_0_15px_rgba(80,200,120,0.5)] transition-all hover:scale-105"
+              className="px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white bg-[#006a61] rounded-lg hover:shadow-[0_4px_15px_rgba(0,106,97,0.3)] transition-all hover:scale-105"
             >
               Volver al inicio
             </Link>
@@ -89,22 +89,22 @@ export const TestimonialsPage = () => {
 
       {/* Background Effects */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-violet-900/20 blur-[120px] rounded-full" />
-        <div className="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-yellow-500/5 blur-[100px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#006a61]/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#4B0082]/5 blur-[120px] rounded-full" />
+        <div className="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-[#D4AF37]/5 blur-[100px] rounded-full" />
       </div>
 
       <div className="relative z-10 pt-32 pb-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <FadeIn>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 font-serif text-[#2D2D2D]">
                 El impacto de <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-200">
+                <span className="text-[#006a61]">
                   The Bestseller Blueprint
                 </span>
               </h1>
-              <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto font-sans">
                 Descubre cómo nuestra plataforma está ayudando a autores a lanzar sus libros con éxito y sin estrés.
               </p>
             </FadeIn>
@@ -113,15 +113,15 @@ export const TestimonialsPage = () => {
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
             {allTestimonials.map((testimonial, i) => (
               <FadeIn key={i} delay={i * 0.1} className="break-inside-avoid">
-                <div className="p-8 rounded-3xl bg-slate-900/50 backdrop-blur border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col hover:shadow-[0_0_30px_rgba(80,200,120,0.1)]">
+                <div className="p-8 rounded-3xl bg-white/80 backdrop-blur border border-slate-200 hover:border-[#006a61]/50 transition-all duration-300 flex flex-col shadow-sm hover:shadow-md">
                   <div className="flex items-center gap-4 mb-6">
                     <div>
-                      <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
+                      <h4 className="font-bold text-[#2D2D2D] text-lg font-serif">{testimonial.name}</h4>
                       <a 
                         href={testimonial.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-emerald-400 hover:text-emerald-300 text-sm transition-colors"
+                        className="text-[#006a61] hover:text-[#008a7d] text-sm transition-colors font-sans"
                       >
                         {testimonial.handle}
                       </a>
@@ -130,11 +130,11 @@ export const TestimonialsPage = () => {
                   
                   <div className="flex gap-1 mb-6">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-5 h-5 fill-[#D4AF37] text-[#D4AF37]" />
                     ))}
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed italic">
+                  <p className="text-slate-700 leading-relaxed italic font-serif">
                     "{testimonial.text}"
                   </p>
                 </div>
@@ -145,7 +145,7 @@ export const TestimonialsPage = () => {
           <FadeIn delay={0.4} className="mt-16 text-center">
             <Link 
               to="/"
-              className="inline-flex items-center gap-2 px-8 py-4 text-slate-950 bg-emerald-400 font-bold rounded-xl hover:scale-105 hover:shadow-[0_0_30px_rgba(80,200,120,0.4)] transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 text-white bg-[#006a61] font-bold rounded-xl hover:scale-[1.02] hover:shadow-[0_4px_15px_rgba(0,106,97,0.3)] transition-all font-sans"
             >
               <ArrowLeft className="w-5 h-5" />
               Volver a la página principal

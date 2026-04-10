@@ -43,14 +43,14 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-24 px-6 bg-slate-950/50 border-t border-slate-800/50">
+    <section className="py-24 px-6 bg-white/50 border-t border-slate-200/50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <FadeIn>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Historias de <span className="text-emerald-400">Éxito</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif text-[#2D2D2D]">
+              Historias de <span className="text-[#006a61]">Éxito</span>
             </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto font-sans">
               Lo que dicen los autores que ya están usando The Bestseller Blueprint.
             </p>
           </FadeIn>
@@ -59,15 +59,15 @@ export const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, i) => (
             <FadeIn key={i} delay={i * 0.2}>
-              <div className="group h-full p-8 rounded-3xl bg-slate-900/50 backdrop-blur border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col hover:shadow-[0_0_30px_rgba(80,200,120,0.1)]">
+              <div className="group h-full p-8 rounded-3xl bg-white/80 backdrop-blur border border-slate-200 hover:border-[#006a61]/50 transition-all duration-300 flex flex-col shadow-sm hover:shadow-md">
                 <div className="flex items-center gap-4 mb-6">
                   <div>
-                    <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
+                    <h4 className="font-bold text-[#2D2D2D] text-lg font-serif">{testimonial.name}</h4>
                     <a 
                       href={testimonial.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-emerald-400 hover:text-emerald-300 text-sm transition-colors"
+                      className="text-[#006a61] hover:text-[#008a7d] text-sm transition-colors font-sans"
                     >
                       {testimonial.handle}
                     </a>
@@ -76,11 +76,11 @@ export const Testimonials = () => {
                 
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-5 h-5 fill-[#D4AF37] text-[#D4AF37]" />
                   ))}
                 </div>
 
-                <p className="text-slate-300 leading-relaxed flex-1 italic">
+                <p className="text-slate-700 leading-relaxed flex-1 italic font-serif">
                   "{testimonial.text}"
                 </p>
               </div>
@@ -91,7 +91,7 @@ export const Testimonials = () => {
         <FadeIn delay={0.6} className="text-center">
           <Link 
             to="/historias"
-            className="inline-flex items-center gap-2 px-6 py-3 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors border border-emerald-500/30 hover:border-emerald-400 rounded-full hover:bg-emerald-500/10"
+            className="inline-flex items-center gap-2 px-6 py-3 text-[#006a61] font-semibold hover:text-[#008a7d] transition-colors border border-[#006a61]/30 hover:border-[#006a61] rounded-full hover:bg-[#006a61]/5 font-sans"
           >
             Leer más historias de éxito →
           </Link>

@@ -177,16 +177,16 @@ const SocialProofPopup = () => {
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}
-          className="fixed top-24 sm:top-auto sm:bottom-6 left-1/2 sm:left-6 -translate-x-1/2 sm:translate-x-0 z-50 flex items-center gap-4 p-4 rounded-2xl bg-slate-900/95 border border-emerald-500/30 shadow-[0_10px_30px_rgba(80,200,120,0.15)] backdrop-blur-md w-[90%] sm:w-auto"
+          className="fixed top-24 sm:top-auto sm:bottom-6 left-1/2 sm:left-6 -translate-x-1/2 sm:translate-x-0 z-50 flex items-center gap-4 p-4 rounded-2xl bg-white/95 border border-[#006a61]/30 shadow-[0_10px_30px_rgba(0,106,97,0.15)] backdrop-blur-md w-[90%] sm:w-auto"
         >
-          <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+          <div className="w-10 h-10 rounded-full bg-[#006a61]/10 flex items-center justify-center text-[#006a61] shrink-0">
             <CheckCircle className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-sm font-medium text-slate-200">
-              <span className="text-emerald-400">{currentData.name}</span> {t.popupJoined}
+            <p className="text-sm font-medium text-[#2D2D2D] font-sans">
+              <span className="text-[#006a61] font-serif">{currentData.name}</span> {t.popupJoined}
             </p>
-            <p className="text-xs text-slate-400 mt-0.5">{currentData.time}</p>
+            <p className="text-xs text-slate-500 mt-0.5 font-sans">{currentData.time}</p>
           </div>
         </motion.div>
       )}
@@ -214,7 +214,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-32 h-32 pointer-events-none z-[100] mix-blend-screen hidden md:block"
+      className="fixed top-0 left-0 w-32 h-32 pointer-events-none z-[100] mix-blend-multiply hidden md:block"
       animate={{
         x: mousePosition.x - 64, // Center the 128px div
         y: mousePosition.y - 64,
@@ -222,7 +222,7 @@ const CustomCursor = () => {
       }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
     >
-      <div className="w-full h-full bg-emerald-500/20 blur-[40px] rounded-full" />
+      <div className="w-full h-full bg-[#D4AF37]/20 blur-[40px] rounded-full" />
     </motion.div>
   );
 };
@@ -237,26 +237,26 @@ const ShareButtons = ({ url, text, lang }: { url: string, text: string, lang: st
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
+      <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider font-sans">
         {lang === 'es' ? 'Comparte con otros autores' : 'Share with other authors'}
       </p>
       <div className="flex flex-wrap justify-center gap-3">
-        <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-[#25D366] hover:text-white rounded-full transition-colors text-slate-300" aria-label="Share on WhatsApp">
+        <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 hover:bg-[#25D366] hover:text-white rounded-full transition-colors text-slate-600" aria-label="Share on WhatsApp">
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         </a>
-        <a href={`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-[#0088cc] hover:text-white rounded-full transition-colors text-slate-300" aria-label="Share on Telegram">
+        <a href={`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 hover:bg-[#0088cc] hover:text-white rounded-full transition-colors text-slate-600" aria-label="Share on Telegram">
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         </a>
-        <a href="https://www.instagram.com/bookishalchemy.ai/" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F56040] hover:text-white rounded-full transition-all text-slate-300" aria-label="Visit our Instagram">
+        <a href="https://www.instagram.com/bookishalchemy.ai/" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 hover:bg-gradient-to-r hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F56040] hover:text-white rounded-full transition-all text-slate-600" aria-label="Visit our Instagram">
           <Instagram className="w-5 h-5" />
         </a>
-        <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-[#1DA1F2] hover:text-white rounded-full transition-colors text-slate-300" aria-label="Share on Twitter">
+        <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 hover:bg-[#1DA1F2] hover:text-white rounded-full transition-colors text-slate-600" aria-label="Share on Twitter">
           <Twitter className="w-5 h-5" />
         </a>
-        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-[#4267B2] hover:text-white rounded-full transition-colors text-slate-300" aria-label="Share on Facebook">
+        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 hover:bg-[#4267B2] hover:text-white rounded-full transition-colors text-slate-600" aria-label="Share on Facebook">
           <Facebook className="w-5 h-5" />
         </a>
-        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-800 hover:bg-[#0077b5] hover:text-white rounded-full transition-colors text-slate-300" aria-label="Share on LinkedIn">
+        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 hover:bg-[#0077b5] hover:text-white rounded-full transition-colors text-slate-600" aria-label="Share on LinkedIn">
           <Linkedin className="w-5 h-5" />
         </a>
       </div>
@@ -317,35 +317,35 @@ function MainContent() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-[#FDFCF0] text-[#2D2D2D] font-sans selection:bg-[#006a61]/20">
       <CustomCursor />
       <SocialProofPopup />
       
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-400 to-violet-500 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#006a61] to-[#4B0082] origin-left z-[60]"
         style={{ scaleX }}
       />
 
       {/* Floating Navbar with Glassmorphism */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-md border-b border-emerald-500/20 px-6 py-4">
+      <nav className="fixed top-0 w-full z-50 bg-[#FDFCF0]/80 backdrop-blur-md border-b border-[#006a61]/10 px-6 py-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400/20 to-violet-500/20 border border-emerald-500/30 overflow-hidden">
-              <BookOpen className="w-6 h-6 text-yellow-400 drop-shadow-md" />
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#006a61]/10 to-[#4B0082]/10 border border-[#006a61]/20 overflow-hidden">
+              <BookOpen className="w-6 h-6 text-[#D4AF37] drop-shadow-sm" />
             </div>
-            <span className="text-xl font-bold text-slate-100 tracking-tight hidden sm:block">The Bestseller Blueprint</span>
+            <span className="text-xl font-bold text-[#2D2D2D] tracking-tight hidden sm:block font-serif">The Bestseller Blueprint</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
             <Link 
               to="/historias" 
-              className="text-sm font-medium text-slate-200 hover:text-emerald-400 transition-colors duration-300"
+              className="text-sm font-medium text-slate-600 hover:text-[#006a61] transition-colors duration-300"
             >
               {t.navTestimonials}
             </Link>
             <button
               onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-              className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-800/50 transition-colors text-slate-300 hover:text-emerald-400"
+              className="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors text-slate-500 hover:text-[#006a61]"
               title={lang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
             >
               <Globe className="w-5 h-5" />
@@ -353,7 +353,7 @@ function MainContent() {
             </button>
             <button
               onClick={scrollToForm}
-              className="px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold text-slate-950 bg-emerald-400 rounded-lg hover:shadow-[0_0_15px_rgba(80,200,120,0.5)] transition-all hover:scale-105"
+              className="px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white bg-[#006a61] rounded-lg hover:shadow-[0_4px_15px_rgba(0,106,97,0.3)] transition-all hover:scale-105"
             >
               {t.btnAccess}
             </button>
@@ -376,23 +376,23 @@ function MainContent() {
             {/* Left Column: Text & Form */}
             <div className="text-center lg:text-left">
               <FadeIn delay={0.1}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-emerald-500/30 text-emerald-400 text-sm font-medium mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(80,200,120,0.15)]">
-                  <Sparkles className="w-4 h-4" />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-emerald-200 text-[#006a61] text-sm font-medium mb-8 backdrop-blur-sm shadow-sm">
+                  <Sparkles className="w-4 h-4 text-[#D4AF37]" />
                   <span>{t.badge}</span>
                 </div>
               </FadeIn>
               
               <FadeIn delay={0.2}>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight font-serif">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight font-serif text-[#2D2D2D]">
                   {t.heroTitle1} <br className="hidden md:block lg:hidden xl:block" />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-200">
+                  <span className="text-[#006a61]">
                     {t.heroTitle2}
                   </span>
                 </h1>
               </FadeIn>
 
               <FadeIn delay={0.3}>
-                <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-sans">
                   {t.heroSubtitle}
                 </p>
               </FadeIn>
@@ -411,29 +411,29 @@ function MainContent() {
                         name="fields[email]" 
                         placeholder={t.formPlaceholder}
                         required
-                        className="flex-1 px-6 py-4 bg-slate-900/50 border border-slate-800 rounded-xl text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500/50 focus:border-emerald-500/50 transition-all font-sans"
+                        className="flex-1 px-6 py-4 bg-white/80 border border-slate-200 rounded-xl text-[#2D2D2D] placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-[#006a61]/50 focus:border-[#006a61]/50 transition-all font-sans shadow-sm"
                       />
                       <button 
                         type="submit"
                         disabled={isLoading}
-                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-[#006a61] rounded-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,106,97,0.4)] disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto w-full whitespace-nowrap"
+                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-[#006a61] rounded-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_4px_15px_rgba(0,106,97,0.3)] disabled:opacity-70 disabled:cursor-not-allowed sm:w-auto w-full whitespace-nowrap"
                       >
                         <span className="relative">{isLoading ? 'Cargando...' : t.btnAccess}</span>
                       </button>
                     </form>
-                    <p className="text-xs text-slate-500 mt-4 text-center lg:text-left">
+                    <p className="text-xs text-slate-500 mt-4 text-center lg:text-left font-sans">
                       {lang === 'es' ? 'Acceso gratuito a la plataforma interactiva. Opción de descarga Premium disponible.' : 'Free access to the interactive platform. Premium download option available.'}
                     </p>
                   </>
                 ) : (
-                  <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-6 text-center lg:text-left">
-                    <h4 className="text-xl font-bold text-emerald-400 mb-2">¡Gracias por suscribirte!</h4>
-                    <p className="text-slate-300">Te estamos redirigiendo a la plataforma...</p>
+                  <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-6 text-center lg:text-left">
+                    <h4 className="text-xl font-bold text-[#006a61] mb-2 font-serif">¡Gracias por suscribirte!</h4>
+                    <p className="text-slate-600 font-sans">Te estamos redirigiendo a la plataforma...</p>
                   </div>
                 )}
                 <div className="flex flex-col items-center lg:items-start gap-4 mt-8">
-                  <div className="flex items-center gap-2 text-sm text-slate-400 font-sans">
-                    <Lock className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-sm text-slate-500 font-sans">
+                    <Lock className="w-4 h-4 text-[#4B0082]" />
                     <span>{t.trustBadge}</span>
                   </div>
                   
@@ -441,58 +441,61 @@ function MainContent() {
                   <div className="mt-4 text-center lg:text-left">
                     <div className="flex gap-1 justify-center lg:justify-start mb-2">
                       {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" viewBox="0 0 20 20">
+                        <svg key={i} className="w-4 h-4 text-[#D4AF37] fill-[#D4AF37]" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                       ))}
                     </div>
-                    <p className="font-serif italic text-slate-300 text-sm leading-relaxed max-w-md">
+                    <p className="font-serif italic text-slate-700 text-sm leading-relaxed max-w-md">
                       "The Bestseller Blueprint es una herramienta que te ayuda a ir de la mano del proceso y no luchando contra él."
                       <br />
-                      <span className="text-emerald-400 not-italic text-xs mt-1 block">— A. Entre Letras (@a_entre_letras)</span>
+                      <span className="text-[#006a61] not-italic text-xs mt-1 block font-sans font-medium">— A. Entre Letras (@a_entre_letras)</span>
                     </p>
                   </div>
                 </div>
               </FadeIn>
             </div>
 
-            {/* Right Column: iPad Mockup */}
+            {/* Right Column: Editorial Montage */}
             <FadeIn delay={0.5} className="relative mt-12 lg:mt-0">
               <div className="relative mx-auto w-full max-w-[750px] aspect-[4/3] lg:scale-110 lg:translate-x-4 xl:translate-x-12">
-                {/* iPad Frame */}
-                <div className="absolute inset-0 bg-slate-800 rounded-[2rem] p-3 shadow-2xl border border-slate-700">
-                  {/* Screen */}
-                  <div className="relative w-full h-full bg-slate-950 rounded-[1.5rem] overflow-hidden border border-slate-900">
-                    {/* Top Camera/Sensor area */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-4 bg-slate-800 rounded-b-xl z-20"></div>
-                    
-                    {/* UI Component instead of image */}
-                    <div className="absolute inset-0 w-full h-full">
-                      <MockupUI />
-                    </div>
-                    
-                    {/* Subtle overlay for realism */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent mix-blend-overlay pointer-events-none"></div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute -top-8 -right-8 w-32 h-32 opacity-80 z-0 pointer-events-none transform rotate-12">
+                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 0C50 0 60 40 90 50C60 60 50 100 50 100C50 100 40 60 10 50C40 40 50 0 50 0Z" fill="#D4AF37" fillOpacity="0.1"/>
+                  </svg>
+                </div>
+                <div className="absolute -bottom-12 -left-12 w-40 h-40 opacity-60 z-0 pointer-events-none transform -rotate-12">
+                  <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 200C100 200 120 120 200 100C120 80 100 0 100 0C100 0 80 80 0 100C80 120 100 200 100 200Z" fill="#006a61" fillOpacity="0.05"/>
+                  </svg>
+                </div>
+
+                {/* Main Image Frame */}
+                <div className="absolute inset-0 bg-white rounded-2xl p-2 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-slate-100 z-10 transform transition-transform hover:scale-[1.01] duration-500">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-50 border border-slate-100/50">
+                    <MockupUI />
                   </div>
                 </div>
                 
-                {/* Glow effect behind iPad */}
-                <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl -z-10 rounded-full opacity-50"></div>
+                {/* Soft Glow */}
+                <div className="absolute -inset-4 bg-[#D4AF37]/10 blur-3xl -z-10 rounded-full opacity-50"></div>
               </div>
             </FadeIn>
           </div>
         </section>
 
         {/* 2. The Problem Section */}
-        <section className="py-24 px-6 bg-slate-900/50 border-y border-slate-800/50 backdrop-blur-sm">
+        <section className="py-24 px-6 bg-white/50 border-y border-slate-200/50 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif text-[#2D2D2D]">
                   {t.problemTitle1} <br />
-                  <span className="text-yellow-400">{t.problemTitle2}</span>
+                  <span className="text-[#D4AF37]">{t.problemTitle2}</span>
                 </h2>
-                <p className="text-[17px] text-slate-400 max-w-2xl mx-auto whitespace-pre-line">
+                <p className="text-[17px] text-slate-600 max-w-2xl mx-auto whitespace-pre-line font-sans">
                   {t.problemSubtitle}
                 </p>
               </FadeIn>
@@ -506,25 +509,25 @@ function MainContent() {
                 { icon: Clock, num: 4, suffix: " años", title: t.stat4Title, desc: t.stat4Desc }
               ].map((stat, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
-                  <div className="p-6 rounded-2xl bg-slate-950/50 border border-slate-800 hover:border-emerald-500/30 transition-colors h-full">
-                    <stat.icon className="w-8 h-8 text-emerald-400 mb-4" />
-                    <div className="text-4xl font-bold text-white mb-2">
+                  <div className="p-6 rounded-2xl bg-white/80 border border-slate-200 hover:border-[#006a61]/30 transition-colors h-full shadow-sm">
+                    <stat.icon className="w-8 h-8 text-[#006a61] mb-4" />
+                    <div className="text-4xl font-bold text-[#2D2D2D] mb-2 font-serif">
                       <AnimatedNumber value={stat.num} prefix={stat.prefix} suffix={stat.suffix} />
                     </div>
-                    <h3 className="text-lg font-semibold text-slate-200 mb-2">{stat.title}</h3>
-                    <p className="text-sm text-slate-400 leading-relaxed">{stat.desc}</p>
+                    <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2 font-sans">{stat.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans">{stat.desc}</p>
                   </div>
                 </FadeIn>
               ))}
             </div>
 
             <FadeIn delay={0.4}>
-              <div className="max-w-3xl mx-auto text-center p-8 rounded-2xl bg-gradient-to-br from-violet-900/20 to-slate-900/50 border border-violet-500/20">
-                <p className="text-xl md:text-2xl font-medium italic text-slate-300">
+              <div className="max-w-3xl mx-auto text-center p-8 rounded-2xl bg-gradient-to-br from-[#4B0082]/5 to-white/50 border border-[#4B0082]/10 shadow-sm">
+                <p className="text-xl md:text-2xl font-medium italic text-[#2D2D2D] font-serif">
                   {t.quote}
                 </p>
                 {t.quoteAuthor && (
-                  <p className="mt-4 text-emerald-400 font-medium">{t.quoteAuthor}</p>
+                  <p className="mt-4 text-[#006a61] font-medium font-sans">{t.quoteAuthor}</p>
                 )}
               </div>
             </FadeIn>
@@ -536,11 +539,11 @@ function MainContent() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <FadeIn>
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif text-[#2D2D2D]">
                   {t.solutionTitle1} <br />
-                  <span className="text-emerald-400">{t.solutionTitle2}</span>
+                  <span className="text-[#006a61]">{t.solutionTitle2}</span>
                 </h2>
-                <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto font-sans">
                   {t.solutionSubtitle}
                 </p>
               </FadeIn>
@@ -553,11 +556,11 @@ function MainContent() {
                 { step: "03", title: t.step3Title, desc: t.step3Desc }
               ].map((item, i) => (
                 <FadeIn key={i} delay={i * 0.2}>
-                  <div className="group relative p-8 rounded-3xl bg-slate-900/40 border border-yellow-400/50 md:border-slate-800 md:hover:border-yellow-400/50 transition-all duration-500 h-full overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent md:from-yellow-400/0 md:to-yellow-400/0 md:group-hover:from-yellow-400/5 md:group-hover:to-transparent transition-colors duration-500" />
-                    <div className="text-6xl font-black text-yellow-400/20 md:text-slate-800/50 mb-6 md:group-hover:text-yellow-400/20 transition-colors">{item.step}</div>
-                    <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{item.title}</h3>
-                    <p className="text-slate-400 leading-relaxed relative z-10">{item.desc}</p>
+                  <div className="group relative p-8 rounded-3xl bg-white/40 border border-[#D4AF37]/50 md:border-slate-200 md:hover:border-[#D4AF37]/50 transition-all duration-500 h-full overflow-hidden shadow-sm">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/5 to-transparent md:from-[#D4AF37]/0 md:to-[#D4AF37]/0 md:group-hover:from-[#D4AF37]/5 md:group-hover:to-transparent transition-colors duration-500" />
+                    <div className="text-6xl font-black text-[#D4AF37]/20 md:text-slate-200/50 mb-6 md:group-hover:text-[#D4AF37]/20 transition-colors font-serif">{item.step}</div>
+                    <h3 className="text-2xl font-bold text-[#2D2D2D] mb-4 relative z-10 font-serif">{item.title}</h3>
+                    <p className="text-slate-600 leading-relaxed relative z-10 font-sans">{item.desc}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -566,19 +569,19 @@ function MainContent() {
         </section>
 
         {/* 4. Our Story Section */}
-        <section className="py-24 px-6 bg-slate-900/30 border-y border-slate-800/50">
+        <section className="py-24 px-6 bg-white/30 border-y border-slate-200/50">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
               <div className="flex items-center gap-4 mb-8">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-emerald-500/50" />
-                <h2 className="text-3xl font-bold text-center">{t.storyTitle}</h2>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-emerald-500/50" />
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-[#006a61]/50" />
+                <h2 className="text-3xl font-bold text-center font-serif text-[#2D2D2D]">{t.storyTitle}</h2>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-[#006a61]/50" />
               </div>
-              <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 text-slate-200">
+              <h3 className="text-2xl md:text-4xl font-bold text-center mb-10 text-[#2D2D2D] font-serif">
                 {t.storySubtitle}
               </h3>
               
-              <div className="prose prose-invert prose-lg max-w-none text-slate-300 leading-relaxed mb-12">
+              <div className="prose prose-lg max-w-none text-slate-600 leading-relaxed mb-12 font-sans">
                 <p className="mb-6">
                   {t.storyP1}
                 </p>
@@ -593,17 +596,17 @@ function MainContent() {
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="p-6 rounded-2xl bg-white/80 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
                 <div>
-                  <p className="text-lg font-semibold text-white flex items-center gap-2">
+                  <p className="text-lg font-semibold text-[#2D2D2D] flex items-center gap-2 font-serif">
                     📖✍️ {t.founders}
                   </p>
-                  <p className="text-emerald-400 text-sm mt-1">{t.foundersDesc}</p>
+                  <p className="text-[#006a61] text-sm mt-1 font-sans">{t.foundersDesc}</p>
                 </div>
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
-                  <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800">{t.tag1}</span>
-                  <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800">{t.tag2}</span>
-                  <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800">{t.tag3}</span>
+                <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500 font-sans">
+                  <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200">{t.tag1}</span>
+                  <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200">{t.tag2}</span>
+                  <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200">{t.tag3}</span>
                 </div>
               </div>
             </FadeIn>
@@ -615,11 +618,11 @@ function MainContent() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <FadeIn>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif text-[#2D2D2D]">
                   {t.featuresTitle1} <br />
-                  <span className="text-emerald-400">{t.featuresTitle2}</span>
+                  <span className="text-[#006a61]">{t.featuresTitle2}</span>
                 </h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">
+                <p className="text-slate-600 max-w-2xl mx-auto font-sans">
                   {t.featuresSubtitle}
                 </p>
               </FadeIn>
@@ -635,13 +638,13 @@ function MainContent() {
                 { icon: FileDown, title: t.feat6Title, desc: t.feat6Desc }
               ].map((feature, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:bg-slate-800/50 transition-colors">
-                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-yellow-400 shrink-0">
+                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-white/40 border border-slate-200/80 hover:bg-white/80 transition-colors shadow-sm">
+                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[#D4AF37] shrink-0">
                       <feature.icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-slate-200 mb-2">{feature.title}</h3>
-                      <p className="text-sm text-slate-400 leading-relaxed">{feature.desc}</p>
+                      <h3 className="text-lg font-semibold text-[#2D2D2D] mb-2 font-serif">{feature.title}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed font-sans">{feature.desc}</p>
                     </div>
                   </div>
                 </FadeIn>
@@ -655,22 +658,22 @@ function MainContent() {
 
         {/* 6. CTA Final (MailerLite) */}
         <section id="cta-form" className="py-24 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-emerald-900/10 blur-[100px] pointer-events-none" />
+          <div className="absolute inset-0 bg-[#006a61]/5 blur-[100px] pointer-events-none" />
           <div className="max-w-3xl mx-auto relative z-10">
             <FadeIn>
               <div className="text-center mb-10">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 font-serif text-[#2D2D2D]">
                   {t.ctaTitle1}
                 </h2>
               </div>
               
               {/* MailerLite Native Form */}
-              <div id="mlb2-38730039" className="ml-subscribe-form ml-subscribe-form-38730039 w-full max-w-md mx-auto bg-slate-900/50 p-8 rounded-3xl border border-slate-800 shadow-2xl backdrop-blur-sm">
+              <div id="mlb2-38730039" className="ml-subscribe-form ml-subscribe-form-38730039 w-full max-w-md mx-auto bg-white/80 p-8 rounded-3xl border border-slate-200 shadow-xl backdrop-blur-sm">
                 {!isSubscribed ? (
                   <>
                     <div className="text-center mb-8">
-                      <h4 className="text-2xl font-bold mb-3 text-white">{t.formTitle}</h4>
-                      <p className="text-slate-300">{t.formDesc}</p>
+                      <h4 className="text-2xl font-bold mb-3 text-[#2D2D2D] font-serif">{t.formTitle}</h4>
+                      <p className="text-slate-600 font-sans">{t.formDesc}</p>
                     </div>
                     
                     <form 
@@ -684,7 +687,7 @@ function MainContent() {
                           <input 
                             type="email" 
                             name="fields[email]" 
-                            className="form-control w-full px-6 py-4 bg-slate-950/80 border border-yellow-400/50 rounded-xl text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400 transition-all shadow-inner"
+                            className="form-control w-full px-6 py-4 bg-white border border-slate-200 rounded-xl text-[#2D2D2D] placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#006a61]/50 focus:border-[#006a61] transition-all shadow-sm font-sans"
                             placeholder={t.formPlaceholder} 
                             autoComplete="email"
                             required
@@ -699,25 +702,25 @@ function MainContent() {
                         <button 
                           type="submit" 
                           disabled={isLoading}
-                          className="primary group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-slate-950 bg-emerald-400 rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(80,200,120,0.4)] w-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                          className="primary group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-[#006a61] rounded-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_4px_15px_rgba(0,106,97,0.3)] w-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-emerald-300 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#006a61] to-[#008a7d] opacity-0 group-hover:opacity-100 transition-opacity" />
                           {isLoading ? (
                             <>
-                              <div className="w-5 h-5 border-2 border-slate-950/30 border-t-slate-950 rounded-full animate-spin" />
-                              <span className="relative ml-2">{lang === 'es' ? 'Enviando...' : 'Sending...'}</span>
+                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                              <span className="relative ml-2 font-sans">{lang === 'es' ? 'Enviando...' : 'Sending...'}</span>
                             </>
                           ) : (
                             <>
-                              <span className="relative">{t.btnAccess}</span>
+                              <span className="relative font-sans">{t.btnAccess}</span>
                               <ChevronRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </>
                           )}
                         </button>
                       </div>
                       
-                      <p className="text-xs text-center text-slate-500 mt-4 flex items-center justify-center gap-1">
-                        <Lock className="w-3 h-3" />
+                      <p className="text-xs text-center text-slate-500 mt-4 flex items-center justify-center gap-1 font-sans">
+                        <Lock className="w-3 h-3 text-[#4B0082]" />
                         {lang === 'es' ? 'Tus datos están 100% seguros' : 'Your data is 100% secure'}
                       </p>
                     </form>
@@ -728,18 +731,18 @@ function MainContent() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-8"
                   >
-                    <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(80,200,120,0.3)]">
-                      <CheckCircle className="w-10 h-10 text-emerald-400" />
+                    <div className="w-20 h-20 bg-[#006a61]/10 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                      <CheckCircle className="w-10 h-10 text-[#006a61]" />
                     </div>
-                    <h4 className="text-3xl font-bold mb-4 text-white">
+                    <h4 className="text-3xl font-bold mb-4 text-[#2D2D2D] font-serif">
                       {lang === 'es' ? '¡Suscripción Exitosa!' : 'Successfully Subscribed!'}
                     </h4>
-                    <p className="text-slate-300 text-lg mb-8">
+                    <p className="text-slate-600 text-lg mb-8 font-sans">
                       {lang === 'es' 
                         ? 'Revisa tu bandeja de entrada (o carpeta de spam) para confirmar tu correo y acceder al contenido.' 
                         : 'Check your inbox (or spam folder) to confirm your email and access the content.'}
                     </p>
-                    <div className="pt-6 border-t border-slate-800">
+                    <div className="pt-6 border-t border-slate-200">
                       <ShareButtons 
                         url={window.location.href} 
                         text={lang === 'es' ? '¡Acabo de descargar The Bestseller Blueprint! Consíguelo aquí:' : 'I just downloaded The Bestseller Blueprint! Get it here:'} 
@@ -754,7 +757,7 @@ function MainContent() {
         </section>
 
         {/* Footer */}
-        <footer className="py-12 text-center text-slate-500 text-sm border-t border-slate-800/50">
+        <footer className="py-12 text-center text-slate-500 text-sm border-t border-slate-200/50 font-sans">
           <div className="mb-8">
             <ShareButtons 
               url={window.location.href} 
