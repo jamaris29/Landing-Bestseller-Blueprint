@@ -5,7 +5,10 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { translations, Language } from './translations';
 import { Testimonials } from './components/Testimonials';
 import { TestimonialsPage } from './pages/TestimonialsPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsAndConditionsPage } from './pages/TermsAndConditionsPage';
 import { MockupUI } from './components/MockupUI';
+import { FadeIn } from './components/FadeIn';
 
 const LanguageContext = createContext<{ lang: Language; setLang: (l: Language) => void; t: typeof translations.es }>({
   lang: 'es',
@@ -45,20 +48,6 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "", duration = 2000 }: { 
   }, [value, duration, isInView]);
 
   return <span ref={ref}>{prefix}{count.toLocaleString()}{suffix}</span>;
-};
-
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
 };
 
 const Particles = () => {
@@ -765,6 +754,14 @@ function MainContent() {
               lang={lang} 
             />
           </div>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6">
+            <Link to="/politica-de-privacidad" className="text-[#006a61] hover:text-[#008a7d] transition-colors font-medium">
+              Política de Privacidad
+            </Link>
+            <Link to="/terminos-y-condiciones" className="text-[#006a61] hover:text-[#008a7d] transition-colors font-medium">
+              Términos y Condiciones
+            </Link>
+          </div>
           <p>{t.footer.replace('{year}', new Date().getFullYear().toString())}</p>
         </footer>
       </div>
@@ -788,6 +785,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainContent />} />
         <Route path="/historias" element={<TestimonialsPage />} />
+        <Route path="/politica-de-privacidad" element={<PrivacyPolicyPage />} />
+        <Route path="/terminos-y-condiciones" element={<TermsAndConditionsPage />} />
       </Routes>
     </LanguageContext.Provider>
   );
